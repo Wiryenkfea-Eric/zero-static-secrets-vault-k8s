@@ -22,7 +22,7 @@ server:
   dataStorage:
     enabled: true
     size: 10Gi
-    storageClass: gp2
+    storageClass: standard
 
   auditStorage:
     enabled: true
