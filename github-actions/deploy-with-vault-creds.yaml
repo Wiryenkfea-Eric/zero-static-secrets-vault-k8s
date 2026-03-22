@@ -1,0 +1,43 @@
+# github-actions/deploy-with-vault-creds.yaml
+# Zero Static Secrets: Deploy workflow using Vault dynamic AWS credentials
+# No AWS_ACCESS_KEY_ID or AWS_SECRET_ACCESS_KEY stored in GitHub Secrets
+
+name: Deploy — Dynamic AWS Credentials via Vault
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get dynamic AWS credentials from Vault
+        uses: hashicorp/vault-action@v3
+        id: vault
+        with:
+          url: ${{ secrets.VAULT_ADDR }}
+          role: cicd-runner
+          method: jwt
+          jwtGithubAudience: https://github.com/Wiryenkfea-Eric
+          secrets: |
+            aws/creds/cicd-deploy access_key | AWS_ACCESS_KEY_ID ;
+            aws/creds/cicd-deploy secret_key | AWS_SECRET_ACCESS_KEY
+
+      - name: Configure AWS CLI with dynamic credentials
+        run: |
+          aws configure set aws_access_key_id ${{ steps.vault.outputs.AWS_ACCESS_KEY_ID }}
+          aws configure set aws_secret_access_key ${{ steps.vault.outputs.AWS_SECRET_ACCESS_KEY }}
+          aws configure set region us-east-1
+
+      - name: Deploy to AWS
+        run: |
+          aws sts get-caller-identity
