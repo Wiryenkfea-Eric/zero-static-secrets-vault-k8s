@@ -1,0 +1,1 @@
+# zero-static-secrets-vault-k8s
