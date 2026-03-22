@@ -1,6 +1,6 @@
 global:
   enabled: true
-  tlsDisable: false
+  tlsDisable: true
 
 server:
   replicas: 3
