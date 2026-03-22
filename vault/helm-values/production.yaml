@@ -1,0 +1,33 @@
+global:
+  enabled: true
+  tlsDisable: false
+
+server:
+  replicas: 3
+
+  ha:
+    enabled: true
+    raft:
+      enabled: true
+      setNodeId: true
+
+  resources:
+    requests:
+      memory: 256Mi
+      cpu: 250m
+    limits:
+      memory: 512Mi
+      cpu: 500m
+
+  dataStorage:
+    enabled: true
+    size: 10Gi
+    storageClass: gp2
+
+  auditStorage:
+    enabled: true
+    size: 5Gi
+
+ui:
+  enabled: true
+  serviceType: ClusterIP
