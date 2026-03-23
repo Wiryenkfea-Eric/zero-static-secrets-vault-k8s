@@ -80,5 +80,5 @@ in Production Kubernetes CI/CD**
 
 - Conference: HashiConf @ IBM TechXchange 2026 — Atlanta, Georgia — October 26–29
 - Track: Security & Governance
-- Speaker: Eric Nyuydze Wiryenkfea — Cloud & DevOps Engineer, AWS Community Builder
-- Community: Co-organizer, HashiCorp User Group Accra (HUG Accra)
+- Speaker: Eric Nyuydze Wiryenkfea — Cloud & DevOps Engineer 
+- Community: AWS Community Builder, Co-organizer-HashiCorp User Group Accra (HUG Accra)
