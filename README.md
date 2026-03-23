@@ -3,8 +3,6 @@
 Production-tested architecture for eliminating static AWS IAM keys from
 Kubernetes CI/CD pipelines using HashiCorp Vault dynamic secrets.
 
-Built for HashiConf @ IBM TechXchange 2026 — Security & Governance Track.
-
 ## Architecture
 
 ![Zero Static Secrets — CI/CD with HashiCorp Vault on Kubernetes](docs/architecture.png)
@@ -35,10 +33,3 @@ This architecture satisfies:
 - **HITRUST** 01.a — policy-as-code access control, TTL-enforced expiry
 
 See [docs/compliance-mapping.md](docs/compliance-mapping.md) for the full mapping.
-
-## Talk
-
-Session: *Zero Static Secrets: Replacing AWS IAM Keys with Vault Dynamic Credentials in Production Kubernetes CI/CD*
-Conference: HashiConf @ IBM TechXchange 2026 — Atlanta, Georgia — October 26–29, 2026
-Track: Security & Governance
-Speaker: Eric Nyuydze Wiryenkfea — Cloud & DevOps Engineer, AWS Community Builder, Co-organizer HUG Accra
